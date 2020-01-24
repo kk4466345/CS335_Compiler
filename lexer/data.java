@@ -1,10 +1,5 @@
-data = '''
-3 + 4 * 10
-  + -20 *2
-  integer
-'''
-
-
-
-
-
+class Simple{  
+    public static void main(String args[]){  
+     System.out.println("Hello Java");  
+    }  
+}  
