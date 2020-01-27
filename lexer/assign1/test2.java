@@ -11,12 +11,6 @@ public class Prime {
                 break;
             }
         }
-
-        This is a comment */
-        
-        kk = "';'"
-        int kk=3;
-        num >> kk;
         if (!flag)
             System.out.println(num + " is a prime number.");
         else

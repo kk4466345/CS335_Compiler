@@ -70,7 +70,11 @@ reserved = {
     'true' : 'TRUE',
     'void' : 'VOID',
     'while' : 'WHILE'
+    
+
 }
+
+# print(type(tokens))
 
 ## Merge tokens and reserved words ##
 
@@ -146,16 +150,13 @@ def t_NUMBER(t):
     return t
 
 def t_IDEN(t):
-    ur'[_a-zA-Z_]([a-zA-Z_0-9áéíóúñÁÉÍÓÚÑ]*[áéíóúñÁÉÍÓÚÑa-zA-Z])?'
+    r'[_a-zA-Z_]([a-zA-Z_0-9áéíóúñÁÉÍÓÚÑ]*[áéíóúñÁÉÍÓÚÑa-zA-Z])?'
     t.value = accentReplace(t.value)
     t.type = reserved.get(t.value,'IDEN')
     if len(t.value)>20:
         t.value = t.value[:20]
     return t
 
-def t_STRING(t):
-    r'\"( ([ -~]|(\\\"))+ )\"'
-    return t
 
 def t_ignore_LINECOMMENT(t):
     r'//(.)*(\n)?'
@@ -230,14 +231,6 @@ lexer.input(contents)
 while True:
     tok = lexer.token()
     if not tok: 
-        break      # No more input
-    print(tok)
-
-
- # Tokenize
-while True:
-    tok = lexer.token()
-    if not tok:
         break      # No more input
     print(tok)
 
